@@ -1,0 +1,31 @@
+<div class="sidebar">
+  <div class="logo">
+    <img src="../../../assets/images/sidebar.png"
+         srcset="../../../assets/images/sidebar@2x.png 2x,
+             ../../../assets/images/sidebar@3x.png 3x">
+  </div>
+
+  <div class="summary-container" [ngClass]="{'active-link': this.currentUrl.indexOf('summary') > -1,
+                                             'inactive': this.currentUrl.indexOf('summary') === -1}" routerLink="/summary">
+    <span class="text-body">SUMMARY</span>
+  </div>
+
+  <div class="tickets-container" [ngClass]="{'active-link': this.currentUrl.indexOf('ticket') > -1,
+                                             'inactive': this.currentUrl.indexOf('ticket') === -1}" routerLink="/tickets">
+    <span class="text-body d-flex" (click)="isCollapsed = !isCollapsed">
+
+      TICKETS <i class="fas fa-angle-down" [ngClass]="{collapsed: isCollapsed, expanded: !isCollapsed}"></i>
+    </span>
+
+    <div id="collapseBasic " [collapse]="isCollapsed" [ngClass]="{'expanded-div': !isCollapsed, 'collapsed-div': isCollapsed}" class="collapsable">
+      <div class="router-item" [ngClass]="{'active-item': this.currentUrl.indexOf('tickets') > -1 && !hasParams(),
+                                           'inactive':    hasParams() || this.currentUrl.indexOf('tickets') === -1}">Reports</div>
+      <div class="router-item" [ngClass]="{'active-item': hasParams(),
+                                           'inactive':    !hasParams()}">Details</div>
+    </div>
+
+  </div>
+
+
+
+</div>

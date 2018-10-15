@@ -1,0 +1,65 @@
+<app-layout-component pageTitle="Tickets" pageSubtitle="NEW TICKET">
+
+  <div class="title-content">
+    <app-ticket-action-header></app-ticket-action-header>
+
+  </div>
+
+  <div class="main">
+      <div class="info-wrapper">
+
+        <div class="info-wrapper-top row mx-0">
+
+          <div class="col-md-3 px-4  info-box" title="Customer ID">
+            <span title={{customerId}} class="info-detail-search">
+              <input class="form-control customer-input" (keyup.enter)="updateCustomerById(customerId)" type="number" min="0" placeholder="Search for ID..." [(ngModel)]="customerId">
+              <button class="btn search-button">
+              <i class="fa fa-search"></i>
+            </button>
+            </span>
+            <span title="Customer ID" class="info-label pt-2">Customer ID</span>
+          </div>
+
+          <div class="col-md-3 px-4  info-box" title="Contact Name">
+            <span title={{contactName}} class="info-detail">
+              <input class="form-control" type="text" placeholder="First & Last Name" [(ngModel)]="contactName">
+            </span>
+            <span title="Contact Name" class="info-label pt-2">Contact Name</span>
+          </div>
+
+          <div class="col-md-3 px-4  info-box" title="Contact Phone">
+            <span title={{contactPhone}} class="info-detail">
+              <input class="form-control" type="text" placeholder="(  )  -" [(ngModel)]="contactPhone">
+            </span>
+            <span title="Contact Phone" class="info-label pt-2">Contact Phone</span>
+          </div>
+
+        </div>
+
+        <div class="info-wrapper-bottom row mx-0">
+
+          <div class="details-top">
+            <div class="info-box col-md-3">
+              <span title="Subject" class="info-label pb-2">Subject</span>
+              <textarea title="Subject" class="supplemental-info" placeholder="Enter a subject..." [(ngModel)]="subject"></textarea>
+            </div>
+            <div class="info-box col-md-6">
+              <span title="Details" class="info-label pb-2">Details</span>
+              <textarea title="Details" class="supplemental-info" placeholder="Enter details here..." [(ngModel)]="details"></textarea>
+            </div>
+
+          </div>
+
+          <div class="details-bottom">
+
+
+          </div>
+      </div>
+    </div>
+
+      <button class="btn save-button m-4" (click)="createNewTicket()">Save Ticket</button>
+  </div>
+
+
+
+</app-layout-component>

@@ -1,0 +1,14 @@
+<div class="input-container">
+
+  <div class="search-container">
+    <input type="number" class="form-control" [(ngModel)]="queryId" (keyup.enter)="searchTicket(queryId)" placeholder="Search for Ticket ID...">
+    <button class="btn search-button" (click)="searchTicket(queryId)">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+
+  <div class="button-container">
+    <button class="btn new-ticket-button" (click)="newTicket()">New Ticket</button>
+  </div>
+
+</div>

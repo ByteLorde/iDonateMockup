@@ -1,0 +1,80 @@
+<app-layout-component pageTitle="Tickets" pageSubtitle="DETAILS">
+
+  <div class="title-content">
+    <app-ticket-action-header></app-ticket-action-header>
+
+  </div>
+
+  <div class="main">
+
+    <div class="left">
+
+      <div class="info-wrapper">
+
+        <div class="info-wrapper-top row mx-0">
+
+          <app-info-box class="col-md-4 px-0" [detail]="ticket.customerId" label="Customer ID"></app-info-box>
+
+          <app-info-box class="col-md-4 px-0" [detail]="ticket.callerName" label="Contact Name"></app-info-box>
+
+          <app-info-box class="col-md-4 px-0" [detail]="ticket.callerPhone" label="Contact Phone"></app-info-box>
+
+          <app-info-box class="col-md-4 px-0" [detail]="ticket.repName" label="Rep Name"></app-info-box>
+
+          <app-info-box class="col-md-4 px-0" [detail]="ticket.dateOpened | date:'MM/dd/yyyy'" label="Open Date"></app-info-box>
+
+          <app-info-box class="col-md-4 px-0" [detail]="(ticket.dateResolved | date:'MM/dd/yyyy') || 'In Progress...'" label="Resolve Date"></app-info-box>
+
+        </div>
+
+        <div class="info-wrapper-bottom row mx-0">
+
+          <div class="details-top">
+            <div class="info-box col-md-4">
+              <span title="Subject" class="info-label pb-1">Subject</span>
+              <span title="{{ticket.subject}}" class="supplemental-info">{{ticket.subject}}</span>
+            </div>
+            <div class="info-box col-md-4">
+              <span title="Details" class="info-label pb-1">Details</span>
+              <span title="{{ticket.details}}" class="supplemental-info">{{ticket.details}}</span>
+            </div>
+
+          </div>
+
+          <div class="details-bottom">
+            <div class="dropdown-wrapper col-md-12">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn dropdown-button" id="dropdownBasic1" ngbDropdownToggle>Status: <b>{{ticket.status | titlecase}}</b></button>
+                <div class="drop-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item" *ngFor="let key of statuses | ticketStatus" (click)="updateTicketStatus(key)">{{key | titlecase}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="right">
+
+      <div class="scrollable">
+        <div class="new-note">
+
+          <span class="note-header">Leave a Note</span>
+
+          <textarea class="new-note-area" placeholder="Enter your note here..." [(ngModel)]="ticketComment"></textarea>
+
+          <button class="btn submit-button" (click)="submitNote()">Submit Note</button>
+
+        </div>
+
+        <app-note-component *ngFor="let note of ticket.comments" [note]="note"></app-note-component>
+      </div>
+    </div>
+
+
+  </div>
+
+</app-layout-component>

@@ -1,0 +1,41 @@
+<div class="login-bg">
+
+  <div class="left">
+
+    <div class="form-wrapper">
+
+      <div class="logo">
+        <img src="../../../assets/images/page-1.png"
+             srcset="../../../assets/images/page-1@2x.png 2x,
+             ../../../assets/images/page-1@3x.png 3x"
+             class="Page-1">
+        <!-- svg -->
+        <!--<img src="../../../assets/images/page-1.svg"-->
+             <!--class="Page-1">-->
+      </div>
+
+      <div class="username-container">
+        <label class="input-label" for="password-input">Username</label>
+        <input class="form-control input-field" type="text" id="username-input" [(ngModel)]="username">
+      </div>
+
+      <div class="password-container">
+        <label class="input-label" for="password-input">Password</label>
+        <input class="form-control input-field" type="password" id="password-input" [(ngModel)]="password">
+      </div>
+
+      <div class="sign-in-container">
+        <button class="btn sign-in-button" [disabled]="!(username && password)" (click)="login()">Sign In</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="right">
+
+
+  </div>
+
+</div>

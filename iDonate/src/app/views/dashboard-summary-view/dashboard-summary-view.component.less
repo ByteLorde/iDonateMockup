@@ -1,0 +1,128 @@
+
+
+.main {
+  width:100%;
+  height:100%;
+  display: flex;
+  //flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.box {
+  width: 49%;
+  height: 75%;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(159, 170, 185, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #777E87;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.fa-check-square {
+  background-color: white;
+  color: #008A70;
+}
+
+.header-text {
+  color: rgb(71, 78, 88);
+  font-family: "RobotoCondensed-Light", "Roboto Condensed", sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.checkbox-text {
+  font-size: .8rem;
+}
+
+.box-title {
+  width:100%;
+  height:15%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px 15px 40px;
+  opacity:.9;
+}
+
+.box-action-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 50px;
+  min-height:50px;
+  background-color: white;
+  font-family: "OpenSans", "Open Sans", sans-serif;
+
+}
+
+.box-action-item:nth-child(odd) {
+  background-color: #f5f8fb;
+}
+
+.box-action-item:hover {
+  background-color: rgba(20, 173, 168, .25);
+  color: #008A70;
+}
+
+.action-item {
+  cursor: pointer;
+  margin: 10px 10px 10px 40px;
+}
+
+.completed-checkbox {
+  cursor: pointer;
+  margin: 10px;
+  font-size: 24px;
+}
+
+.box-content {
+  width: 100%;
+  height: 85%;
+  overflow-y: auto;
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.box-content-row {
+  width: 100%;
+  height: auto;
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.box-data {
+  width: 40%;
+  margin:15px;
+  display:flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.box-data-number {
+  color: #B6C0CD;
+  font-family: "OpenSans-Light, Open Sans";
+  font-size: 28px;
+}
+
+.box-data-label {
+  color: #474E58;
+  font-family: "OpenSans-Semibold", Open Sans;
+  font-size: 14px;
+  font-weight: bold;
+}

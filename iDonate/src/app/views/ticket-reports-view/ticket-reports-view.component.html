@@ -1,0 +1,73 @@
+<app-layout-component pageTitle="Tickets" pageSubtitle="REPORTS">
+
+  <div class="title-content">
+    <div class="date-picker-container">
+      <app-date-picker (dateRange)="selectDateRange($event)"></app-date-picker>
+    </div>
+
+    <div class="status-filter-container">
+
+      <div class="dropdown-wrapper col-md-12">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn dropdown-button" id="dropdownBasic1" ngbDropdownToggle>Statuses: <b>{{ticketQuery.statuses.length === 1 ? ticketQuery.statuses[0] : ticketQuery.statuses.length}}</b></button>
+          <div class="drop-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" *ngFor="let key of statuses | ticketStatus" (click)="toggleStatus(key)">
+              <i class="fas"
+                 [ngClass]="{'fa-check-square': ticketQuery.statuses.includes(key),
+                             'fa-square': !ticketQuery.statuses.includes(key)}">
+              </i><span class="ml-3">{{key | titlecase}}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="main">
+    <div class="table-container">
+      <table class="table table-bordered mb-0" *ngIf="tickets">
+        <thead>
+        <tr>
+          <th>Ticket ID</th>
+          <th>Customer ID</th>
+          <th>Caller Name</th>
+          <th>Rep Name</th>
+          <th>Date Opened</th>
+          <th>Date Resolved</th>
+          <th>Status</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ticket of tickets; let index = index" routerLink="/tickets/{{ticket.ticketId}}">
+          <td>{{ticket.ticketId}}</td>
+          <td>{{ticket.customerId}}</td>
+          <td>{{ticket.callerName}}</td>
+          <td>{{ticket.repName}}</td>
+          <td>{{ticket.dateOpened | date:"MM/dd/yyyy"}}</td>
+          <td>{{(ticket.dateResolved | date:"MM/dd/yyyy") || 'In Progress...'}}</td>
+          <td>
+            <span class="status-container">
+              <i class="fas fa-circle {{getStatusAsClass(ticket.status)}}"></i>
+              {{ticket.status}}
+            </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination-container" *ngIf="totalMatches">
+      <ngb-pagination
+        [collectionSize]="totalMatches"
+        [(page)]="ticketQuery.pageNumber"
+        [pageSize]="ticketQuery.perPage"
+        (pageChange)="updateData($event)"
+        aria-label="Default pagination"></ngb-pagination>
+
+    </div>
+
+  </div>
+</app-layout-component>

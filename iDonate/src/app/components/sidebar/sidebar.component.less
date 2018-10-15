@@ -1,0 +1,172 @@
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(169deg, #2d496f, #016653);
+  display:flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  min-width:150px;
+}
+
+.fas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  padding: 25px 20px 20px;
+}
+
+.text-body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: condensed;
+  letter-spacing: 1px;
+  color: #ffffff!important;
+}
+
+
+.summary-container, .tickets-container {
+  height:5%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  //opacity: .6;
+
+  //background-color: rgba(109,140,182, .5);
+
+}
+
+.fa-angle-down {
+  margin-left:5px;
+}
+
+.tickets-container {
+  color:white;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  height:auto;
+  padding: 15px;
+}
+
+.collapsable {
+  width:100%;
+  padding-top: 10px;
+  transition: all 1s;
+}
+
+.router-item {
+  width: 100%;
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 30px;
+}
+
+.active-link {
+  background-color: rgba(255,255,255,.2);
+  opacity: 1;
+}
+
+.active-item {
+  opacity:1;
+}
+
+.inactive {
+  opacity: .6;
+}
+
+.collapsed {
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform:rotateZ(0deg);
+  -ms-transform: rotateZ(0deg);
+  -o-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  //animation: rotate-out .25s ease-in-out forwards;
+}
+
+.expanded {
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+  //animation: rotate-in .25s ease-in-out forwards;
+}
+
+.collapsed-div {
+  //animation: collapse .5s ease-in-out forwards;
+}
+
+.expanded-div {
+  //animation: expand .5s ease-in-out forwards;
+}
+
+@keyframes expand {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+    display:block;
+  }
+}
+
+
+@keyframes collapse {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    display:none;
+  }
+}
+
+@keyframes rotate-out {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform:rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(180deg);
+    -moz-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+  }
+}
+
+
+@keyframes rotate-in {
+  from {
+    -webkit-transform: rotateZ(180deg);
+    -moz-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform:rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+}

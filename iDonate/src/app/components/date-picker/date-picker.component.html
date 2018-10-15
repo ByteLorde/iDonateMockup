@@ -1,0 +1,14 @@
+
+<div class="row">
+  <div class="col-xs-12 col-12 col-md-12 m-0 form-group input-container">
+    <button class="btn calendar-button"  (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"><i class="fas fa-calendar-alt"></i></button>
+    <input type="text"
+           bsDaterangepicker
+           placeholder="Filter by date opened..."
+           class="form-control"
+           #dp="bsDaterangepicker"
+           [bsConfig]="{ rangeInputFormat: 'MMM Do YYYY' }"
+           (bsValueChange)="onValueChange($event)">
+  </div>
+</div>
+

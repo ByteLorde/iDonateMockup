@@ -1,0 +1,28 @@
+<div class="wrapper">
+
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="content">
+    <div class="title-container">
+      <span class="page-title"> {{pageTitle}} </span> <span class="subtitle"> &nbsp;- {{pageSubtitle}} </span>
+
+      <div class="title-content-wrapper">
+        <ng-content select=".title-content"></ng-content>
+      </div>
+
+      <div class="logout-container">
+        <span class="logout-button" (click)="logout()">Log Out</span>
+        <span class="display-name">{{username}}</span>
+      </div>
+
+    </div>
+
+    <div class="content-container">
+      <ng-content select=".main"></ng-content>
+    </div>
+
+  </div>
+
+</div>

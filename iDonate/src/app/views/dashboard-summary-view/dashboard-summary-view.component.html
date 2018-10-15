@@ -1,0 +1,78 @@
+<app-layout-component pageTitle="Dashboard" pageSubtitle="SUMMARY">
+  <div class="main">
+    <div class="box">
+      <div class="box-title">
+        <span class="header-text">ACTION ITEMS</span>
+        <div class="checkbox-container">
+          <span class="checkbox-text text-muted">Hide Completed</span>
+
+          <i class="fas completed-checkbox"  (click)="hideCompleted = !hideCompleted"
+             [ngClass]="{'fa-check-square': hideCompleted,
+                           'fa-square': !hideCompleted}">
+          </i>
+        </div>
+      </div>
+
+      <div class="box-content">
+
+        <div class="box-action-item" *ngFor="let filteredItem of getActionItems() | async | actionItem:hideCompleted">
+          <!--<input class="action-item" id="action-item-1"  type="checkbox">-->
+
+          <i class="fas fa-2x action-item" (click)="toggleItem(filteredItem)"
+             [ngClass]="{'fa-check-square': filteredItem.completed,
+                           'fa-square': !filteredItem.completed}">
+          </i>
+          <span class="mb-0">{{filteredItem.text}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">
+        <h3 class="header-text">METRIC DATA</h3>
+
+      </div>
+      <hr width="90%">
+      <div class="box-content-row">
+        <div class="box-data">
+          <label class="box-data-number">
+            {{metric.pending}}
+          </label>
+
+          <label class="box-data-label">
+            No. of pending calls
+          </label>
+
+        </div>
+        <div class="box-data">
+          <label class="box-data-number">
+            {{metric.ready}}
+          </label>
+
+          <label class="box-data-label">
+            No. ready for approval
+          </label>
+        </div>
+        <div class="box-data">
+          <label class="box-data-number">
+            {{metric.reopened}}
+          </label>
+
+          <label class="box-data-label">
+            No. of reopened calls
+          </label>
+        </div>
+        <div class="box-data">
+          <label class="box-data-number">
+            {{metric.total}}
+          </label>
+
+          <label class="box-data-label">
+            No. of total tickets
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-layout-component>
+

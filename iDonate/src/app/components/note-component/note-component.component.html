@@ -1,0 +1,18 @@
+
+
+<div class="wrapper">
+
+  <div class="header-container">
+
+    <span title="{{note.user}}" class="name-label">{{note.user}}</span>
+    <span title="{{note.timestamp | date:'MM/dd/yyyy'}}" class="date-label">{{note.timestamp | date:"MM/dd/yyyy"}}</span>
+
+  </div>
+
+  <div class="body">
+    <span title="Message Body" class="note-content">
+      {{note.message}}
+    </span>
+  </div>
+
+</div>
